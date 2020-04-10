@@ -10,7 +10,7 @@ import utility.ConnectionManager;
 
 public class UserDAO implements UserDaoInterface {
 
-	public int signUp(User user) {
+	public int signUp(User user) throws ClassNotFoundException {
 		String INSERT_USERS_SQL = "INSERT INTO USERS(email, password)VALUES(?,?)";
 
 		int result = 0;
@@ -48,6 +48,9 @@ public class UserDAO implements UserDaoInterface {
 		} catch (SQLException e) {
 			// process sql exception
 			System.out.println(e);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return status;
 	}
